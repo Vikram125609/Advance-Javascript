@@ -1,0 +1,32 @@
+1. Set time out zero
+2. Event Loop
+3. Promise.resolve()
+4. Micro Task
+5. Placement of JS Files
+6. Will you use Async or Defer
+7. Critical Rendering Path
+8. Blocking, Non Blocking while rendering the Page
+9. Let Const Var Differ
+
+1. Block Scoping 
+2. TDZ
+3. Closure (Daily Usage)
+4. Functional Programming 
+5. Polyfill of Map,filter,reduce
+6. Compose
+7. Currying
+8. Pure Functions 
+9. In Machine Coding Round Use Pure Functions 
+
+1. this
+2. Call bind apply
+3. Questions on Frame. Which you will prefer & why
+4. Virtual Dom
+5. Reconcilation
+6. fiber
+7. Prototypical Inheritance 
+8. Prmoises, Async, Await, Callback
+9. Parallel Request
+
+1. Sub sequential Request
+2. Debounce vs Throttle
