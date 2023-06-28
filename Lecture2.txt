@@ -1,0 +1,23 @@
+When we run a javascript program a execution context is created
+
+var n = 2;
+function square (num) {
+    return num * num;
+}
+var square2 = square(n);
+var square4 = square(4);
+
+execution context is created in two phases
+
+first phase is the Memory creation
+-> Javascript will allocate Memory to the variables and functions in the first phase 
+and store them in the Memory component 
+
+and store them as key values pair in the first phase 
+n : undefined 
+& for the function it stores the whole code of the function 
+square2 : undefined
+square4 : undefined 
+
+
+second phase is the code execution

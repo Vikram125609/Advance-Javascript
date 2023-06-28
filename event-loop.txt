@@ -1,0 +1,44 @@
+Javascript is a synchronus, blocking, single-threaded language
+To make the async programming possible we need to take the help of libuv
+
+How code is getting executed in the node runtime
+
+The V8 Engine execute the Javascript Code it comprises of 
+1. Memory Heap
+2. Call Stack
+
+Question 
+
+1. Whenever the async task completes in libuv at what point Node.js decide to run the associated 
+call back function on the call stack ?
+
+2. What about async methods like setTimeout & setInterval which also delay the execution of a callback 
+function ?
+
+3. If two async task such as setTimeout and readFile complete at the same time how does Node decide which 
+callback function to run first on the call stack ?
+
+
+Event loop is the core part of libuv
+
+Event loop is a C Program and is a part of Libuv 
+A design pattern that orchestrates or co-ordinates the execution of synchronus and asynchronus code in Node.js
+
+Event loop is a loop that is alive as long as your Node.js application is up and running 
+In every iteration of the loop we come accross six different Queues.
+Each Queue has holds one or more callback functions that need to be eventually executed on the call stack and the type of callback function are differnet for each queue
+
+1. First we have the timer Queue this contain the call back associated with the setTimeout and setTimeInterval
+2. Second we have the I/O Queue this contain the call back associated with all the async methods associated with the fs and http module
+3. Third we have the Check Queue this contain the call back associated with a function called setImmediate and this function is specific to node and it's not something you would come accross writting Javascript for the Browsers 
+4. Fourth we have the Close Queue this contain the call back associated with a close event of the async task
+5. Finally we have the Microtask Queue at the center that is actually two seperate Queues. The First Queue is called the next tick queue and contain callback associated with the function called process.nextTick and the second qeueu is the promise queue which contain the callback that are associated with the native promise in Javascript.
+
+The Timer,I/o,Check,Close queue are all the part of the Libuv 
+But the Microtask queue are not the part of the Libuv 
+
+Priority Order of the Queue 
+
+User Written sync Javascript Code take priority over async code that the run time would like to execute
+Which means only after the call stack is empty the Event loop comes into picture 
+Within the event loop the sequence of execution follows certain rules 
